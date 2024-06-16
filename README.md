@@ -18,7 +18,7 @@ The SerialPeer class is used to establish and manage serial communication.
 ```javascript
 const { SerialPeer } = require('./src/SerialCommunication');
 
-const setup = {
+const serialPeer = new SerialPeer({
    baudRate: 9600,
    path: '/dev/ttyS0',
    delimiter: '\n',
@@ -34,9 +34,7 @@ const setup = {
          }
       })
    ]
-};
-
-const serialPeer = new SerialPeer(setup);
+});
 ```
 ### SerialEndpoint
 The SerialEndpoint class is used to handle specific endpoints and parse incoming data based on a provided schema.
