@@ -1,0 +1,23 @@
+{
+  "name": "serial-peers",
+  "version": "0.1.0",
+  "description": "Used to create serial peers connection between 2 or more devices using RXTX.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelipeRamosDev/serial-peers.git"
+  },
+  "author": "Felipe Ramos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FelipeRamosDev/serial-peers/issues"
+  },
+  "homepage": "https://github.com/FelipeRamosDev/serial-peers#readme",
+  "dependencies": {
+    "serialport": "^12.0.0"
+  }
+}
