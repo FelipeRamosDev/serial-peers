@@ -1,4 +1,21 @@
+/**
+ * SerialEndpoint class for handling specific endpoints in serial communication.
+ * 
+ * This class provides an interface to define and manage endpoints, parse incoming data,
+ * and execute corresponding controller functions based on the data schema.
+ * 
+ * @class SerialEndpoint
+ */
 class SerialEndpoint {
+   /**
+    * Creates an instance of SerialEndpoint.
+    * 
+    * @constructor
+    * @param {Object} setup - The setup configuration object.
+    * @param {string} setup.path - The path for the endpoint.
+    * @param {Object} [setup.bodySchema={}] - The schema for validating and parsing the request body.
+    * @param {function} [setup.controller=() => {}] - The controller function to execute when the endpoint is triggered.
+    */
    constructor (setup) {
       const { path, bodySchema = {}, controller = () => {} } = Object(setup);
 
@@ -7,6 +24,11 @@ class SerialEndpoint {
       this._controller = controller.bind(this);
    }
 
+   /**
+    * Triggers the controller function with the parsed query string data.
+    * 
+    * @param {string} queryString - The query string received from the serial communication.
+    */
    trigger(queryString) {
       const query = new URLSearchParams(queryString);
       const body = {};
@@ -15,6 +37,12 @@ class SerialEndpoint {
       this._controller(this.parseBody(body));
    }
 
+   /**
+    * Parses the body of the request based on the provided schema.
+    * 
+    * @param {Object} body - The request body to parse.
+    * @returns {Object} - The parsed result or an error object if validation fails.
+    */
    parseBody(body) {
       const errors = [];
       const result = {};
