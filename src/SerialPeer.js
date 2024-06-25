@@ -91,9 +91,12 @@ class SerialPeer {
       }
 
       const [ endpointPath, queryString ] = data.split('?');
-      if (endpointPath && endpointPath[0] === '/') {
+      if (endpointPath.length && endpointPath[0] === '/') {
          const endpoint = this.getEndpoint(endpointPath);
-         return endpoint.trigger(`?${queryString}`);
+
+         if (endpoint) {
+            return endpoint.trigger(`?${queryString}`);
+         }
       }
  
       this.onData(data);

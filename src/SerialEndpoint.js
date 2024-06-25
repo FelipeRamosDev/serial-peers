@@ -103,6 +103,10 @@ class SerialEndpoint {
          return { error: true, result: errors };
       }
    }
+
+   setController(controller) {
+      this._controller = controller;
+   }
 }
 
 module.exports = SerialEndpoint;
