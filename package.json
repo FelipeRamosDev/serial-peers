@@ -1,6 +1,6 @@
 {
   "name": "serial-peers",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Used to create serial peers connection between 2 or more devices using RXTX.",
   "main": "index.js",
   "scripts": {
